@@ -1,0 +1,47 @@
+.card{
+    position: relative;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 5px;
+    background: rgba(0, 6, 47, 0.466)
+}
+
+.card h3{
+    font-size: 1.5rem;
+}
+
+.card p{
+    font-size: .9rem;
+}
+
+.card span{
+    font-size: 3rem;
+    font-weight: bold;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to bottom, rgb(255, 243, 172), rgb(179, 152, 0));
+}
+
+.no-data{
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgba(245, 245, 245, 0.368);
+}
+
+.border{
+    position: absolute;
+    width: 90%;
+    height: 92%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: 2px solid rgba(245, 245, 245, 0.028);
+}
