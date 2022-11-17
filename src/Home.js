@@ -5,10 +5,20 @@ import "./Home.css";
 
 export default function Home() {
   const [searchData, setSearchData] = useState("");
-  const handleReload = () => {
-    window.location.reload();
-    return false;
-  };
+  const [showed, setShowed] = useState(false);
+
+  const handleGlobalShow = () => {
+    setShowed(!showed)
+  }
+  
+  // const handleReload = () => {
+  //   window.location.reload();
+  //   return false;
+  // };
+
+  // const handleSort = () => {
+  //   return Math.random() - 0.5
+  // }
 
   return (
     <div className="home-container">
@@ -20,30 +30,33 @@ export default function Home() {
           placeholder="Chercher un département"
         />
         <label>Entrer un nom ou un numéro.</label>
-        <button onClick={() => handleReload()} className="reload-btn">
+        {/* <button className="reload-btn">
           mélanger&nbsp;
           <i className="fa-sharp fa-solid fa-arrow-rotate-right"></i>
-        </button>
+        </button> */}
+        {showed ? <div onClick={() => handleGlobalShow()} className="show-btn">Cacher les informations&nbsp;<i class="fa-solid fa-eye-slash"></i></div> :         <div onClick={() => handleGlobalShow()} className="show-btn">Montrer les informations&nbsp;<i class="fa-solid fa-eye"></i></div>}
       </form>
       {searchData !== "" ? (
         <div className="grid">
           {projectData
             .filter(
               (item) =>
+                item.departement.includes(searchData) ||
                 item.departement.toLowerCase().includes(searchData) ||
                 item.id.toLowerCase().includes(searchData) ||
+                item.chef_lieu.includes(searchData) ||
                 item.chef_lieu.toLowerCase().includes(searchData)
             )
             .map((item) => {
-              return <Cards item={item} />;
+              return <Cards item={item} showed={showed} setShowed={setShowed} />;
             })}
         </div>
       ) : (
         <div className="grid">
           {projectData
-            .sort(() => Math.random() - 0.5)
+              // .sort(() => handleSort())
             .map((item) => {
-              return <Cards item={item} />;
+              return <Cards item={item} showed={showed} setShowed={setShowed} />;
             })}
         </div>
       )}

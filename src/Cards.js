@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import "./Cards.css";
 
-export default function Cards({ item }) {
-  const [showed, setShowed] = useState(false);
-
+export default function Cards({ item, showed, setShowed }) {
+  const [actived, setActived] = useState(false)
+  
+  
   const handleShow = () => {
-    setShowed(!showed);
+    setActived(!actived)
   };
 
   return (
     <div onClick={() => handleShow()} className="card">
       <h3>{item.departement}</h3>
-      {showed ? (
+      {showed || actived ? (
         <>
           <p>Chef-lieu : {item.chef_lieu}</p>
           <span>{item.id}</span>

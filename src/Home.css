@@ -35,7 +35,7 @@ input[type="text"]{
     border-radius: 25px;
 }
 
-.reload-btn{
+.show-btn{
     padding: 0;
     border: none;
     display: flex;
@@ -46,6 +46,7 @@ input[type="text"]{
     background: crimson;
     color: whitesmoke;
     padding: 15px 20px;
+    cursor: pointer;
 }
 
 .grid{
