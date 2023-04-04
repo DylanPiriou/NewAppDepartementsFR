@@ -1,7 +1,7 @@
 .card{
     position: relative;
-    width: 200px;
-    height: 300px;
+    width: 250px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +9,20 @@
     text-align: center;
     padding: 50px 20px;
     border-radius: 5px;
-    background: rgba(0, 6, 47, 0.466)
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+    background-position: center;
+    background-size: cover;
+}
+
+.card .bg-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%) blur(1px);
+    z-index: 0;
 }
 
 .card h3{
@@ -21,18 +34,28 @@
 }
 
 .card span{
-    font-size: 3rem;
+    font-size: 5rem;
     font-weight: bold;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-image: linear-gradient(to bottom, rgb(255, 243, 172), rgb(179, 152, 0));
 }
 
+.data,
 .no-data{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     font-size: 2rem;
     font-weight: bold;
-    color: rgba(245, 245, 245, 0.368);
+    color: rgb(245, 245, 245);
+    z-index: 1;
+}
+
+.no-data img{
+    width: 100%;
+    max-width: 120px;
+    object-fit: cover;
 }
 
 .border{
@@ -43,5 +66,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background: transparent;
-    border: 2px solid rgba(245, 245, 245, 0.028);
+    border: 2px solid rgb(245, 245, 245);
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 380px) {
+    .card{
+        width: 100%;
+    }
 }

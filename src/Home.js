@@ -22,7 +22,12 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <h1>Les départements français</h1>
+      <header>
+      <h1>
+        <span>les départements</span>
+        <br />
+        <span>français</span>
+      </h1>
       <form>
         <input
           onChange={(e) => setSearchData(e.target.value)}
@@ -36,6 +41,7 @@ export default function Home() {
         </button> */}
         {showed ? <div onClick={() => handleGlobalShow()} className="show-btn">Cacher les informations&nbsp;<i class="fa-solid fa-eye-slash"></i></div> :         <div onClick={() => handleGlobalShow()} className="show-btn">Montrer les informations&nbsp;<i class="fa-solid fa-eye"></i></div>}
       </form>
+      </header>
       {searchData !== "" ? (
         <div className="grid">
           {projectData

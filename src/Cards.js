@@ -11,14 +11,16 @@ export default function Cards({ item, showed, setShowed }) {
 
   return (
     <div onClick={() => handleShow()} className="card">
-      <h3>{item.departement}</h3>
+      <img src="/msm.jpg" alt="" className="bg-img"/>
       {showed || actived ? (
-        <>
+        <div className="data">
+          <h3>{item.departement}</h3>
           <p>Chef-lieu : {item.chef_lieu}</p>
           <span>{item.id}</span>
-        </>
+        </div>
       ) : (
         <div className="no-data">
+          <img src={item.img} alt="" />
           <i className="fa-solid fa-magnifying-glass"></i>
         </div>
       )}
